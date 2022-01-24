@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GlobalStyle } from "../theme/globalStyles.js";
 import { darkTheme, lightTheme, styles } from "../theme/themes.js";
 import { ThemeProvider } from "styled-components";
-import Layout from "../components/Layout.js";
+import Layout from "../components/layout";
 import "../theme/styles.css";
 
 function MyApp({ Component, pageProps }) {

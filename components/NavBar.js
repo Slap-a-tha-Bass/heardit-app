@@ -1,11 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { Button } from "../theme/globalStyles";
+import { FiUser } from "react-icons/fi";
+import { WiSunset, WiMoonWaxingCrescent1 } from "react-icons/wi";
 
 const Container = styled.nav`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 1vw;
   padding: 1vw;
@@ -13,25 +15,51 @@ const Container = styled.nav`
 const Logo = styled.div`
   font-size: 3rem;
 `;
-
+const Flexbox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const CustomLink = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+  color: rgb(31, 255, 160);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 const Navbar = ({ setTheme, theme }) => {
+  const [isActive, setIsActive] = useState(false);
   const themeToggler = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+    setIsActive((isActive) => !isActive);
   };
 
   return (
     <Container className="nav-link">
       <Logo>
-        <Link href="/">Logo</Link>
+        <Link href="/">Heardit</Link>
       </Logo>
-      <Link href="/page1">page 1</Link>
-      <Link href="/page2">page 2</Link>
-      <Link href="/page3">page 3</Link>
-      <Link href="/page4">page 4</Link>
-      <Link href="/page5">page 5</Link>
-      <Button primary onClick={themeToggler}>
-        theme
-      </Button>
+      <Flexbox>
+        <Link href="/signup">sign up</Link>
+        <Link href="/login">login</Link>
+        <CustomLink>
+          <Link href="/profile">
+            <FiUser />
+          </Link>
+        </CustomLink>
+        {isActive ? (
+          <Button style={{backgroundColor: "#F9F9F9", color: "black", fontSize: "2rem"}} onClick={themeToggler}>
+            <WiMoonWaxingCrescent1 />
+          </Button>
+        ) : (
+          <Button style={{backgroundColor: "rgb(15,15,15)", color: "whitesmoke", fontSize: "2rem"}} onClick={themeToggler}>
+            <WiSunset />
+          </Button>
+        )}
+      </Flexbox>
     </Container>
   );
 };
