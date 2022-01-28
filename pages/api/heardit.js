@@ -17,14 +17,14 @@ export default async (req, res) => {
         if (isEmpty(heardit)) {
           heardit = ALL_POSTS;
         }
-        console.log({ heardit });
         delete query.search;
 
         const response = await fetch(
-          `${BASE_URL}${HEARDIT_PATH}${heardit}${SUFFIX}${serializeQuery(query)}`
+          `${BASE_URL}${HEARDIT_PATH}${heardit}${SUFFIX}${serializeQuery(
+            query
+          )}`
         );
         const fetchResponse = await response.json();
-        console.log(fetchResponse.data.children[0]);
         res.status(200).send(fetchResponse);
       } catch (error) {
         console.log(error);

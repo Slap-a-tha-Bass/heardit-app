@@ -16,7 +16,7 @@ export const isObject = (obj) => {
 }
 
 export const isArray = (obj) => {
-    return Object.prototype.toString.call(obj) === '[object Array]';
+    return Object.prototype.toString.call(obj) === '[object Array]' || obj === [];
 }
 
 export const serializeQuery = (obj) => {

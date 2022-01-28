@@ -1,14 +1,20 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import List from "../components/list";
+import styled from "styled-components";
+
+export const CenterDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function Home(props) {
   const [posts, setPosts] = useState([]);
   const getPosts = async () => {
     try {
       const res = await fetch("/api/heardit");
-      const hearditResponse = res.json();
-      setPosts(hearditResponse?.data?.children);
+      const hearditResponse = await res.json();
+      setPosts(hearditResponse.data.children);
     } catch (error) {
       console.log(error);
     }
@@ -41,9 +47,10 @@ export default function Home(props) {
         />
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
-
-      <h1>Posts</h1>
-      <List posts={posts} />
+      <CenterDiv>
+        <h1>Posts</h1>
+      </CenterDiv>
+      {<List posts={posts} />}
     </div>
   );
 }
