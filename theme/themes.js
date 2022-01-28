@@ -8,14 +8,14 @@ const styles = {
   export const darkTheme = {
     title: "Dark",
     primary: `rgba(35,35,35, 0.3)`,
-    secondary: `rgb(31, 255, 160)`,
-    info: `rgb(31, 255, 160)`,
+    secondary: `rgb(255, 115, 0)`,
+    info: `rgb(255, 115, 0)`,
     dark: `black`,
     text: `#fff`,
     bgColor: `linear-gradient(
       344deg,
-      rgba(6, 6, 6, 1) 0%,
-      rgba(20, 20, 20, 1) 100%
+      rgba(30, 30, 30, 1) 0%,
+      rgba(45, 45, 45, 1) 100%
     )`,
     ...styles,
   };
@@ -24,7 +24,7 @@ const styles = {
   export const lightTheme = {
     title: "Light",
     primary: `rgba(220,220,220, 0.3)`,
-    secondary: `rgb(31, 255, 160)`,
+    secondary: `rgb(6, 6, 6)`,
     info: `black`,
     dark: `black`,
     text: `#000`,

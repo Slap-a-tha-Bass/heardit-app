@@ -1,6 +1,22 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
+import List from "../components/list";
 
 export default function Home(props) {
+  const [posts, setPosts] = useState([]);
+  const getPosts = async () => {
+    try {
+      const res = await fetch("/api/heardit");
+      const hearditResponse = res.json();
+      setPosts(hearditResponse?.data?.children);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <div>
       <Head>
@@ -26,12 +42,8 @@ export default function Home(props) {
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
 
-      <h1>Title 1</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta,
-        sequi tempora numquam quasi provident rerum itaque asperiores, excepturi
-        consequatur illo quae animi iure est quas nihil recusandae fuga iste.
-      </p>
+      <h1>Posts</h1>
+      <List posts={posts} />
     </div>
   );
 }

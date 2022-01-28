@@ -45,17 +45,33 @@ const Navbar = ({ setTheme, theme }) => {
       <Flexbox>
         <Link href="/signup">sign up</Link>
         <Link href="/login">login</Link>
-        <CustomLink>
-          <Link href="/profile">
+
+        <Link href="/profile">
+          <div>
             <FiUser />
-          </Link>
-        </CustomLink>
+          </div>
+        </Link>
+
         {isActive ? (
-          <Button style={{backgroundColor: "#F9F9F9", color: "black", fontSize: "2rem"}} onClick={themeToggler}>
+          <Button
+            style={{
+              backgroundColor: "#F9F9F9",
+              color: "black",
+              fontSize: "2rem",
+            }}
+            onClick={themeToggler}
+          >
             <WiMoonWaxingCrescent1 />
           </Button>
         ) : (
-          <Button style={{backgroundColor: "rgb(15,15,15)", color: "whitesmoke", fontSize: "2rem"}} onClick={themeToggler}>
+          <Button
+            style={{
+              backgroundColor: "rgb(15,15,15)",
+              color: "whitesmoke",
+              fontSize: "2rem",
+            }}
+            onClick={themeToggler}
+          >
             <WiSunset />
           </Button>
         )}

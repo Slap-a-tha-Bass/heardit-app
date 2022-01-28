@@ -4,6 +4,7 @@ import { darkTheme, lightTheme, styles } from "../theme/themes.js";
 import { ThemeProvider } from "styled-components";
 import Layout from "../components/layout";
 import "../theme/styles.css";
+import "isomorphic-fetch";
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("dark");
